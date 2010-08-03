@@ -2,11 +2,11 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD$
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.2 2010/08/01 03:46:46 tota Exp $
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	0.6.4
+PORTVERSION=	0.6.5
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://www.cozmixng.org/~kou/download/ \
 		${MASTER_SITE_LOCAL:S|%SUBDIR%|tota/rabbit|}
@@ -16,9 +16,6 @@ COMMENT=	An RD-document-based presentation application
 
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		${LOCALBASE}/bin/rd2:${PORTSDIR}/textproc/ruby-rdtool
-
-LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/COPYING
 
 USE_RUBY=	yes
 USE_RUBY_SETUP=	yes
@@ -48,6 +45,7 @@ x-generate-plist:
 	${ECHO} bin/rabbit-command >> pkg-plist.new
 	${ECHO} bin/rabbit-theme-manager >> pkg-plist.new
 	${ECHO} bin/rabbit.bat >> pkg-plist.new
+	${ECHO} bin/rabbitter >> pkg-plist.new
 	${ECHO} bin/rabrick >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rabbit -type f | ${SORT} | ${SED} -e 's,${RUBY_SITELIBDIR},%%RUBY_SITELIBDIR%%,' >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rwiki -type f | ${SORT} | ${SED} -e 's,${RUBY_SITELIBDIR},%%RUBY_SITELIBDIR%%,' >> pkg-plist.new
@@ -61,12 +59,6 @@ x-generate-plist:
 	${ECHO} %%PORTDOCS%%@dirrm %%DOCSDIR%%/ja >> pkg-plist.new
 	${ECHO} %%PORTDOCS%%@dirrm %%DOCSDIR%% >> pkg-plist.new
 	${FIND} ${WRKSRC}/sample -type d -depth | ${SORT} -r | ${SED} -e 's,${WRKSRC}/sample,%%PORTDOCS%%@dirrm %%EXAMPLESDIR%%,' >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/ja/LC_MESSAGES >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/ja >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/fr/LC_MESSAGES >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/fr >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/en/LC_MESSAGES >> pkg-plist.new
-	${ECHO} @dirrmtry share/locale/en >> pkg-plist.new
 	${FIND} ${DATADIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${DATADIR},@dirrm %%DATADIR%%,' >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rwiki -type d -depth | ${SORT} -r | ${SED} -e 's,${RUBY_SITELIBDIR},@dirrm %%RUBY_SITELIBDIR%%,' >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rabbit -type d -depth | ${SORT} -r | ${SED} -e 's,${RUBY_SITELIBDIR},@dirrm %%RUBY_SITELIBDIR%%,' >> pkg-plist.new
