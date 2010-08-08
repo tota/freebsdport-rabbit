@@ -2,11 +2,12 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.2 2010/08/01 03:46:46 tota Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.4 2010/08/07 11:49:37 tota Exp $
 #
 
 PORTNAME=	rabbit
 PORTVERSION=	0.6.5
+PORTREVISION=	1
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://www.cozmixng.org/~kou/download/ \
 		${MASTER_SITE_LOCAL:S|%SUBDIR%|tota/rabbit|}
@@ -20,8 +21,14 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 USE_RUBY=	yes
 USE_RUBY_SETUP=	yes
 
+RUBY_SHEBANG_FILES=	bin/rabbirc bin/rabbit bin/rabbit-command \
+			bin/rabbit-theme-manager bin/rabbitter bin/rabrick
+
 DOCS_EN=	NEWS.en README.en
 DOCS_JA=	NEWS.ja README.ja
+
+pre-install:
+	${RM} -f ${WRKSRC}/bin/rabbit.bat
 
 post-install:
 .if !defined(NOPORTEXAMPLES)
@@ -44,7 +51,6 @@ x-generate-plist:
 	${ECHO} bin/rabbit >> pkg-plist.new
 	${ECHO} bin/rabbit-command >> pkg-plist.new
 	${ECHO} bin/rabbit-theme-manager >> pkg-plist.new
-	${ECHO} bin/rabbit.bat >> pkg-plist.new
 	${ECHO} bin/rabbitter >> pkg-plist.new
 	${ECHO} bin/rabrick >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rabbit -type f | ${SORT} | ${SED} -e 's,${RUBY_SITELIBDIR},%%RUBY_SITELIBDIR%%,' >> pkg-plist.new
