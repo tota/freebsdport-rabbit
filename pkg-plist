@@ -2,7 +2,7 @@ bin/rabbirc
 bin/rabbit
 bin/rabbit-command
 bin/rabbit-theme-manager
-bin/rabbitter
+bin/rabbiter
 bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/action.rb
 %%RUBY_SITELIBDIR%%/rabbit/action/basic.rb
@@ -53,6 +53,7 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/element/slide.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/table.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/tag.rb
+%%RUBY_SITELIBDIR%%/rabbit/element/text-block-element.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/text-container-element.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/text-element.rb
 %%RUBY_SITELIBDIR%%/rabbit/element/text-renderer.rb
@@ -362,6 +363,8 @@ bin/rabrick
 %%RUBY_SITELIBDIR%%/rabbit/theme/slide-show/slide-show.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/table/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/table/table.rb
+%%RUBY_SITELIBDIR%%/rabbit/theme/tag/property.rb
+%%RUBY_SITELIBDIR%%/rabbit/theme/tag/tag.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/timer/property.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/timer/timer.rb
 %%RUBY_SITELIBDIR%%/rabbit/theme/title-background-color/property.rb
@@ -442,6 +445,10 @@ bin/rabrick
 share/locale/en/LC_MESSAGES/rabbit.mo
 share/locale/fr/LC_MESSAGES/rabbit.mo
 share/locale/ja/LC_MESSAGES/rabbit.mo
+%%PORTDOCS%%%%DOCSDIR%%/NEWS.en
+%%PORTDOCS%%%%DOCSDIR%%/README.en
+%%PORTDOCS%%%%DOCSDIR%%/ja/NEWS.ja
+%%PORTDOCS%%%%DOCSDIR%%/ja/README.ja
 %%PORTDOCS%%%%EXAMPLESDIR%%/asahina/alice.png
 %%PORTDOCS%%%%EXAMPLESDIR%%/asahina/yukiusa.png
 %%PORTDOCS%%%%EXAMPLESDIR%%/blue-circle.rd
@@ -553,6 +560,7 @@ share/locale/ja/LC_MESSAGES/rabbit.mo
 %%PORTDOCS%%%%EXAMPLESDIR%%/sode/kame.riff
 %%PORTDOCS%%%%EXAMPLESDIR%%/spiral.svg
 %%PORTDOCS%%%%EXAMPLESDIR%%/table-en.rd
+%%PORTDOCS%%%%EXAMPLESDIR%%/table.hiki
 %%PORTDOCS%%%%EXAMPLESDIR%%/table.rd
 %%PORTDOCS%%%%EXAMPLESDIR%%/theme-bench-en.rab
 %%PORTDOCS%%%%EXAMPLESDIR%%/theme-bench.rab
@@ -567,12 +575,6 @@ share/locale/ja/LC_MESSAGES/rabbit.mo
 %%PORTDOCS%%%%EXAMPLESDIR%%/usatti/tanu-kitaro.png
 %%PORTDOCS%%%%EXAMPLESDIR%%/usatti/usa-taro.png
 %%PORTDOCS%%%%EXAMPLESDIR%%/usatti/yukidaru-taro.png
-%%PORTDOCS%%%%DOCSDIR%%/NEWS.en
-%%PORTDOCS%%%%DOCSDIR%%/README.en
-%%PORTDOCS%%%%DOCSDIR%%/ja/NEWS.ja
-%%PORTDOCS%%%%DOCSDIR%%/ja/README.ja
-%%PORTDOCS%%@dirrm %%DOCSDIR%%/ja
-%%PORTDOCS%%@dirrm %%DOCSDIR%%
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%/usatti
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%/sode
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%/rabbit/theme/triangle-image-slide-number
@@ -601,6 +603,8 @@ share/locale/ja/LC_MESSAGES/rabbit.mo
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%/kof2005
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%/asahina
 %%PORTDOCS%%@dirrm %%EXAMPLESDIR%%
+%%PORTDOCS%%@dirrm %%DOCSDIR%%/ja
+%%PORTDOCS%%@dirrm %%DOCSDIR%%
 @dirrm %%DATADIR%%/image/ruby-images
 @dirrm %%DATADIR%%/image/rabbit-images
 @dirrm %%DATADIR%%/image/cozmixng-images
@@ -616,6 +620,7 @@ share/locale/ja/LC_MESSAGES/rabbit.mo
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/title-background-image
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/title-background-color
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/timer
+@dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/tag
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/table
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/slide-show
 @dirrm %%RUBY_SITELIBDIR%%/rabbit/theme/slide-number
