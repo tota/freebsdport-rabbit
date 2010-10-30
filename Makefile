@@ -15,11 +15,15 @@ MAINTAINER=	tota@FreeBSD.org
 COMMENT=	An RD-document-based presentation application
 
 RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
-		${LOCALBASE}/bin/rd2:${PORTSDIR}/textproc/ruby-rdtool \
-		rubygem-net-irc:${PORTSDIR}/irc/rubygem-net-irc
+		rd2:${PORTSDIR}/textproc/ruby-rdtool \
+		${RUBY_SITELIBDIR}/gettext.rb:${PORTSDIR}/devel/ruby-gettext \
+		${RUBY_SITELIBDIR}/div.rb:${PORTSDIR}/www/ruby-div \
+		rubygem-net-irc>=0.0.9:${PORTSDIR}/irc/rubygem-net-irc \
+		ruby-pwgen:${PORTSDIR}/security/ruby-password
 
 USE_RUBY=	yes
 USE_RUBY_SETUP=	yes
+USE_GETTEXT=	yes
 
 RUBY_SHEBANG_FILES=	bin/rabbirc bin/rabbit bin/rabbit-command \
 			bin/rabbit-theme-manager bin/rabbiter bin/rabrick
@@ -55,8 +59,8 @@ x-generate-plist:
 	${FIND} ${DATADIR} -type f | ${SORT} | ${SED} -e 's,${DATADIR},%%DATADIR%%,' >> pkg-plist.new
 	${FIND} ${PREFIX}/share/locale -type f -name rabbit.mo | ${SORT} | ${SED} -e 's,^${PREFIX}/,,' >> pkg-plist.new
 	${FIND} ${DOCSDIR} -type f | ${SORT} | ${SED} -e 's,${DOCSDIR},%%PORTDOCS%%%%DOCSDIR%%,' >> pkg-plist.new
-	${FIND} ${EXAMPLESDIR} -type f | ${SORT} | ${SED} -e 's,${EXAMPLESDIR},%%PORTDOCS%%%%EXAMPLESDIR%%,' >> pkg-plist.new
-	${FIND} ${EXAMPLESDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${EXAMPLESDIR},%%PORTDOCS%%@dirrm %%EXAMPLESDIR%%,' >> pkg-plist.new
+	${FIND} ${EXAMPLESDIR} -type f | ${SORT} | ${SED} -e 's,${EXAMPLESDIR},%%PORTEXAMPLES%%%%EXAMPLESDIR%%,' >> pkg-plist.new
+	${FIND} ${EXAMPLESDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${EXAMPLESDIR},%%PORTEXAMPLES%%@dirrm %%EXAMPLESDIR%%,' >> pkg-plist.new
 	${FIND} ${DOCSDIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${DOCSDIR},%%PORTDOCS%%@dirrm %%DOCSDIR%%,' >> pkg-plist.new
 	${FIND} ${DATADIR} -type d -depth | ${SORT} -r | ${SED} -e 's,${DATADIR},@dirrm %%DATADIR%%,' >> pkg-plist.new
 	${FIND} ${RUBY_SITELIBDIR}/rwiki -type d -depth | ${SORT} -r | ${SED} -e 's,${RUBY_SITELIBDIR},@dirrm %%RUBY_SITELIBDIR%%,' >> pkg-plist.new
