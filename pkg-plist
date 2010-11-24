@@ -442,9 +442,9 @@ bin/rabrick
 %%DATADIR%%/image/ruby-images/ruby-pink-polygon-logo.png
 %%DATADIR%%/image/ruby-images/ruby-pink-polygon-small-icon.png
 %%DATADIR%%/image/ruby-images/ruby-pink-polygon.png
-share/locale/en/LC_MESSAGES/rabbit.mo
-share/locale/fr/LC_MESSAGES/rabbit.mo
-share/locale/ja/LC_MESSAGES/rabbit.mo
+%%NLS%%share/locale/en/LC_MESSAGES/rabbit.mo
+%%NLS%%share/locale/fr/LC_MESSAGES/rabbit.mo
+%%NLS%%share/locale/ja/LC_MESSAGES/rabbit.mo
 %%PORTDOCS%%%%DOCSDIR%%/NEWS.en
 %%PORTDOCS%%%%DOCSDIR%%/README.en
 %%PORTDOCS%%%%DOCSDIR%%/ja/NEWS.ja
