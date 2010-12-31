@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	rabbit
-PORTVERSION=	0.9.1
+PORTVERSION=	0.9.2
 CATEGORIES=	misc ruby
 MASTER_SITES=	http://www.cozmixng.org/~kou/download/ \
 		${MASTER_SITE_LOCAL:S|%SUBDIR%|tota/rabbit|}
@@ -20,6 +20,9 @@ RUN_DEPENDS=	${RUBY_SITEARCHLIBDIR}/gtk2.so:${PORTSDIR}/x11-toolkits/ruby-gtk2 \
 		rubygem-net-irc>=0.0.9:${PORTSDIR}/irc/rubygem-net-irc \
 		ruby-pwgen:${PORTSDIR}/security/ruby-password \
 		rubygem-tweetstream>=0.0.0:${PORTSDIR}/net/rubygem-tweetstream
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/GPL
 
 USE_RUBY=	yes
 USE_RUBY_SETUP=	yes
