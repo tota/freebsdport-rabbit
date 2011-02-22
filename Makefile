@@ -2,7 +2,7 @@
 # Date created:		2010-08-01
 # Whom:			TAKATSU Tomonari <tota@FreeBSD.org>
 #
-# $FreeBSD: ports/misc/rabbit/Makefile,v 1.5 2010/11/24 15:27:45 tota Exp $
+# $FreeBSD: ports/misc/rabbit/Makefile,v 1.7 2010/12/31 16:05:03 tota Exp $
 #
 
 PORTNAME=	rabbit
@@ -39,6 +39,10 @@ RUBY_SHEBANG_FILES=	bin/rabbirc bin/rabbit bin/rabbit-command \
 
 DOCS_EN=	NEWS.en README.en
 DOCS_JA=	NEWS.ja README.ja
+
+post-patch:
+	${REINPLACE_CMD} -e s'|%%LOCALBASE%%|${LOCALBASE}|' \
+		${WRKSRC}/lib/rabbit/parser/ext/tex.rb
 
 pre-install:
 	@${RM} -f ${WRKSRC}/bin/rabbit.bat
